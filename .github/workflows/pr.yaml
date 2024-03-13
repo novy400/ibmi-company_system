@@ -45,7 +45,12 @@ jobs:
 
       - name: Generate makefile
         run: so -bf make -l `git diff --name-only origin/main origin/${GITHUB_HEAD_REF}`
-
+      - name: Generate .logs
+        run: mkdir .logs
+        
+      - name: Generate .evfevent
+        run: mkdir .evfevent
+        
       - name: Deploy to IBM i
         run: | 
           ici \
